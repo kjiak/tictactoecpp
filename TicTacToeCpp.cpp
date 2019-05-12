@@ -77,7 +77,7 @@ int main()
 	return 0;
 }
 
-// Array as parameter decays to pointer
+// functions/arrays as parameter decays to pointer
 // No benefits to passing basic type by pointer
 void marking (char *v, int choice, char mark) {
 	v[choice] = mark;
