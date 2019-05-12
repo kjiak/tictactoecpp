@@ -8,11 +8,11 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-std::vector<char> square = { 'o','1','2','3','4','5','6','7','8','9' };
+char square[] = { 'o','1','2','3','4','5','6','7','8','9' };
 
 int checkstatus();
 void board();
-void marking(std::vector<char> *v, int* choice, char* mark);
+void marking(char *v, int choice, char mark);
 
 int main()
 {
@@ -31,31 +31,31 @@ int main()
 		mark = (player == 1) ? 'X' : 'O';
 
 		if (choice == 1 && square[1] == '1')
-			marking(&square, &choice, &mark);
+			marking(square, choice, mark);
 			//square[1] = mark;
 		else if (choice == 2 && square[2] == '2')
-			marking(&square, &choice, &mark);
+			marking(square, choice, mark);
 			//square[2] = mark;
 		else if (choice == 3 && square[3] == '3')
-			marking(&square, &choice, &mark);
+			marking(square, choice, mark);
 			//square[3] = mark;
 		else if (choice == 4 && square[4] == '4')
-			marking(&square, &choice, &mark);
+			marking(square, choice, mark);
 			//square[4] = mark;
 		else if (choice == 5 && square[5] == '5')
-			marking(&square, &choice, &mark);
+			marking(square, choice, mark);
 			//square[5] = mark;
 		else if (choice == 6 && square[6] == '6')
-			marking(&square, &choice, &mark);
+			marking(square, choice, mark);
 			//square[6] = mark;
 		else if (choice == 7 && square[7] == '7')
-			marking(&square, &choice, &mark);
+			marking(square, choice, mark);
 			//square[7] = mark;
 		else if (choice == 8 && square[8] == '8')
-			marking(&square, &choice, &mark);
+			marking(square, choice, mark);
 			//square[8] = mark;
 		else if (choice == 9 && square[9] == '9')
-			marking(&square, &choice, &mark);
+			marking(square, choice, mark);
 			//square[9] = mark;
 		else
 		{
@@ -80,8 +80,10 @@ int main()
 	return 0;
 }
 
-void marking (std::vector<char> *v, int* choice, char* mark) {
-	(*v)[*choice] = *mark;
+// Array as parameter decays to pointer
+// No benefits to passing basic type by pointer
+void marking (char *v, int choice, char mark) {
+	v[choice] = mark;
 }
 
 int checkstatus()
